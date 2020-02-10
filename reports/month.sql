@@ -1,5 +1,5 @@
 /**
- * Usage by month.
+ * Consumption by month.
  */
 SELECT
     TO_CHAR(started_at, 'YYYY-MM') AS year_month,
