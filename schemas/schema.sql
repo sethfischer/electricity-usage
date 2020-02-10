@@ -51,3 +51,57 @@ CREATE INDEX readings_value ON readings(value);
 -- CREATE UNIQUE INDEX unique_started_at ON readings(started_at);
 -- CREATE UNIQUE INDEX unique_ended_at ON readings(ended_at);
 -- CREATE UNIQUE INDEX started_at_ended_at_unique ON readings(started_at, ended_at);
+
+
+/*
+ * `events` table.
+ */
+
+DROP TABLE IF EXISTS events;
+
+CREATE TABLE events(
+    id SERIAL PRIMARY KEY,
+    started_at TIMESTAMP NOT NULL,
+    ended_at TIMESTAMP NULL DEFAULT NULL,
+    label VARCHAR(15) NOT NULL,
+    description VARCHAR(255) NOT NULL
+);
+
+COMMENT ON COLUMN events.started_at IS 'Event start time.';
+COMMENT ON COLUMN events.ended_at IS 'Event end time.';
+COMMENT ON COLUMN events.label IS 'Short label describing event.';
+COMMENT ON COLUMN events.description IS 'Long description of event.';
+
+CREATE INDEX events_started_at ON events(started_at);
+CREATE INDEX events_ended_at ON events(ended_at);
+CREATE UNIQUE INDEX events_label ON events(label);
+
+
+/*
+ * `transactions` table.
+ */
+
+DROP TABLE IF EXISTS transactions;
+DROP TYPE IF EXISTS transaction_description;
+
+CREATE TYPE transaction_description AS ENUM (
+    'DC',
+    'DD'
+);
+
+CREATE TABLE transactions(
+    id SERIAL PRIMARY KEY,
+    transaction_at TIMESTAMP NOT NULL,
+    amount MONEY NOT NULL,
+    other_party VARCHAR(20) NOT NULL,
+    description transaction_description NOT NULL,
+    reference VARCHAR(12) NULL,
+    particulars VARCHAR(12) NOT NULL,
+    analysis_code VARCHAR(12) NULL
+);
+
+COMMENT ON COLUMN transactions.transaction_at IS 'Transaction time.';
+COMMENT ON COLUMN transactions.amount IS 'Transaction amount.';
+
+CREATE INDEX transactions_transaction_at ON transactions(transaction_at);
+CREATE INDEX transactions_amount ON transactions(amount);
