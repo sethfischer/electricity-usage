@@ -1,0 +1,5 @@
+.vagrant/
+*.swo
+*.swp
+*~
+/data/
