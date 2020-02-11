@@ -8,3 +8,11 @@ help: ## Display help text
 .PHONY: ln-data-directory
 ln-data-directory: ## Create symbolic link to data directory
 	ln -s ${EUSAGE_DATA_DIRECTORY} data
+
+.PHONY: output-directory
+output-directory: ## Create output directory
+	mkdir -p output
+
+.PHONY: clean
+clean: ## Remove output directory
+	-rm -r ./output
