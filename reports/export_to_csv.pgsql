@@ -42,7 +42,7 @@ FROM
 /*
  * Export table events to CSV file.
  */
-\copy (SELECT started_at, ended_at, label, description FROM events ORDER BY started_at, ended_at) TO output/events.csv CSV HEADER
+\copy (SELECT started_at::timestamp(0), ended_at::timestamp(0), label, description FROM events ORDER BY started_at, ended_at) TO output/events.csv CSV HEADER
 
 
 /*
