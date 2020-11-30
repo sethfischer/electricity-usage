@@ -9,6 +9,8 @@ DROP TYPE IF EXISTS status;
 CREATE TYPE reading_unit AS ENUM ('kWh');
 CREATE TYPE reading_status AS ENUM (
     'different missing scaled estimated',
+    'different scaled estimated',
+    'different scaled',
     'different',
     'validated'
 );
