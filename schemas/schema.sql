@@ -5,6 +5,8 @@
 DROP TABLE IF EXISTS readings;
 DROP TYPE IF EXISTS unit;
 DROP TYPE IF EXISTS status;
+DROP TYPE IF EXISTS reading_unit;
+DROP TYPE IF EXISTS reading_status;
 
 CREATE TYPE reading_unit AS ENUM ('kWh');
 CREATE TYPE reading_status AS ENUM (
