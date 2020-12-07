@@ -2,16 +2,21 @@
 
 Database schema and SQL or [PL/pgSQL][1] for analysing electricity usage data.
 
-Create symbolic link to data directory:
 
-    EUSAGE_DATA_DIRECTORY="../path/to/data_directory" make ln-data-directory
+## Usage
+
+    $ cp .env.dist .env
+    $ editor .env
+    $ docker-compose --env-file .env up -d
+    $ make import-data
+    $ docker exec -it eusage psql postgres -U postgres
 
 
 ## Examples
 
 ### `year_month_crosstab.pgsql`
 
-    $ psql eusage -f reports/year_month_crosstab.pgsql
+    $ docker exec -it eusage psql postgres -U postgres -f /reports/year_month_crosstab.pgsql
      year | jan | feb | mar | apr | may | jun  | jul  | aug | sep | oct | nov | dec
     ------+-----+-----+-----+-----+-----+------+------+-----+-----+-----+-----+-----
      2015 |     |     |     |     | 176 |  865 |  890 | 853 | 694 | 386 | 211 | 217

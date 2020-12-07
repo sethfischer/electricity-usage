@@ -1,6 +1,6 @@
-.vagrant/
 *.swo
 *.swp
 *~
+/.env
 /data/
 /output/

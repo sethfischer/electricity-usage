@@ -1,0 +1,22 @@
+version: "3.6"
+services:
+  postgres:
+    container_name: eusage
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.bash_history:/root/.bash_history:ro
+      - ./schemas/extensions.sql:/docker-entrypoint-initdb.d/10_extensions.sql
+      - type: bind
+        source: ${EUSAGE_DATA_DIRECTORY}
+        target: /data
+      - type: bind
+        source: ./reports
+        target: /reports
+      - type: bind
+        source: ./schemas
+        target: /schemas
