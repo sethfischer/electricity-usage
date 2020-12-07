@@ -1,5 +1,7 @@
 # Electricity usage
 
+![test](https://github.com/sethfischer/electricity-usage/workflows/test/badge.svg)
+
 Database schema and SQL or [PL/pgSQL][1] for analysing electricity usage data.
 
 
