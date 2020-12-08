@@ -11,7 +11,7 @@ Database schema and SQL or `PL/pgSQL`_ for analysing electricity usage data.
 Usage
 -----
 
-.. code-block:: shell
+.. code-block::
 
     $ cp .env.dist .env
     $ editor .env
@@ -26,7 +26,7 @@ Examples
 year_month_crosstab.pgsql
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: shell
+.. code-block::
 
     $ docker exec -it eusage psql postgres -U postgres -f /reports/year_month_crosstab.pgsql
      year | jan | feb | mar | apr | may | jun  | jul  | aug | sep | oct | nov | dec
