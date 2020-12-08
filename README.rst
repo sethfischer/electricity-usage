@@ -1,11 +1,17 @@
-# Electricity usage
+=================
+Electricity usage
+=================
 
-![test](https://github.com/sethfischer/electricity-usage/workflows/test/badge.svg)
-
-Database schema and SQL or [PL/pgSQL][1] for analysing electricity usage data.
+|test-status|
 
 
-## Usage
+Database schema and SQL or `PL/pgSQL`_ for analysing electricity usage data.
+
+
+Usage
+-----
+
+.. code-block:: shell
 
     $ cp .env.dist .env
     $ editor .env
@@ -14,9 +20,13 @@ Database schema and SQL or [PL/pgSQL][1] for analysing electricity usage data.
     $ docker exec -it eusage psql postgres -U postgres
 
 
-## Examples
+Examples
+--------
 
-### `year_month_crosstab.pgsql`
+year_month_crosstab.pgsql
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: shell
 
     $ docker exec -it eusage psql postgres -U postgres -f /reports/year_month_crosstab.pgsql
      year | jan | feb | mar | apr | may | jun  | jul  | aug | sep | oct | nov | dec
@@ -30,4 +40,9 @@ Database schema and SQL or [PL/pgSQL][1] for analysing electricity usage data.
     (6 rows)
 
 
-[1]: https://www.postgresql.org/docs/10/plpgsql.html
+.. _`PL/pgSQL`: https://www.postgresql.org/docs/10/plpgsql.html
+
+
+.. |test-status| image:: https://github.com/sethfischer/electricity-usage/workflows/test/badge.svg
+    :target: https://github.com/sethfischer/electricity-usage/actions?query=workflow%3Atest
+    :alt: Test Status
