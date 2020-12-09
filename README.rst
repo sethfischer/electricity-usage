@@ -11,6 +11,14 @@ Database schema and SQL or `PL/pgSQL`_ for analysing electricity usage data.
 Usage
 -----
 
+Create a data directory using the provided skeleton:
+
+.. code-block::
+
+    cp -r skel/data ../electricity-usage-data
+
+Configure and run the Docker application:
+
 .. code-block::
 
     $ cp .env.dist .env

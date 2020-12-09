@@ -1,0 +1,31 @@
+/*
+ * Import data.
+ *
+ * Import CSV files obtained from the provider into the readings table.
+ */
+
+
+/*
+ * Create schema.
+ */
+\i schemas/schema.sql
+
+SET DATESTYLE TO 'ISO, DMY';
+
+/*
+ * Import consumption data.
+ */
+-- 2020_flick.csv
+\copy readings (icp_number, meter_serial_number, channel_number, started_at, ended_at, value, unit_code,status) FROM 'data/0000099999XX9XX/usage/original/2020_flick.csv' DELIMITER ',' CSV HEADER
+
+
+/*
+ * Import event data.
+ */
+\copy events (started_at, ended_at, label, description) FROM 'data/0000099999XX9XX/events.csv' DELIMITER ',' CSV HEADER
+
+
+/*
+ * Import transaction data.
+ */
+\copy transactions (transaction_at, amount, other_party, description, reference, particulars, analysis_code) FROM 'data/0000099999XX9XX/transactions/transactions_flick.csv' DELIMITER ',' CSV HEADER
