@@ -13,13 +13,13 @@ Usage
 
 Create a data directory using the provided skeleton:
 
-.. code-block::
+.. code-block:: console
 
-    cp -r skel/data ../electricity-usage-data
+    $ cp -r skel/data ../electricity-usage-data
 
 Configure and run the Docker application:
 
-.. code-block::
+.. code-block:: console
 
     $ cp .env.dist .env
     $ editor .env
